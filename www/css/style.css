@@ -7,3 +7,13 @@
     width: 100%;
     height: 100%;
 }
+
+.food {
+    border-collapse: collapse;
+    border-style: hidden;
+}
+
+.food td{
+    border: 1px solid grey;
+    margin-left:20px;
+}
