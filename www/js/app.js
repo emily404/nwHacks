@@ -52,18 +52,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   .state('tab.restaurants', {
       url: '/restaurants',
       views: {
-<<<<<<< HEAD
-        'tab-restaurants': {
-=======
-        'tab-chats': {
-
->>>>>>> f91143aecdc3086716f18c03329619cfc1ce1d4b
-          templateUrl: 'templates/tab-restaurants.html',
-
+    	  'tab-restaurants':{
+          templateUrl: 'html/tab-restaurants.html',
           controller: 'MapController'
         }
       }
     })
+    
     .state('tab.chat-detail', {
       url: '/chats/:chatId',
       views: {
