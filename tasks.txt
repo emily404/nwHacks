@@ -1,0 +1,23 @@
+meat free monday
+
+-jenny
+reminder (pebble)
+
+-emily
+find nearest vegetarian restaurant(google map api and yelp)
+
+-kelvin
+seasonal fruits (text only)
+most recent farmers market information 
+
+remind something else
+maybe checkin with facebook api
+
+firebase schema
+food
+ - type
+ 	- fruits
+ 	- vegetable
+ - price
+ - name
+ 
