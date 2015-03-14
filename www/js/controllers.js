@@ -64,14 +64,19 @@ angular.module('starter.controllers', [])
             });
         });
         
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(49.3, -123.1207),
-            title:"Hello World!"
-        });
-
-        marker.setMap(map);
+        var fbRef = new Firebase('https://flickering-fire-8922.firebaseio.com/');
+        var resRef = fbRef.child('restaurant');
+        
+        resRef.on("value", function(snapshot) {
+    		snapshot.forEach(function(childSnapshot){
+    			var marker = new google.maps.Marker({
+    	            position: new google.maps.LatLng(childSnapshot.val().lat, childSnapshot.val().lon),
+    	        });
+    			
+    			marker.setMap(map);
+    		})		
+    	});
         
         $scope.map = map;
-
  
 });
