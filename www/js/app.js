@@ -49,10 +49,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+  .state('tab.restaurants', {
+      url: '/restaurants',
       views: {
-        'tab-chats': {
+        'tab-restaurants': {
           templateUrl: 'templates/tab-restaurants.html',
           controller: 'MapController'
         }
@@ -77,12 +77,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
-  .state('tab.recipe', {
-    url: '/recipe',
+  .state('tab.twitter', {
+    url: '/twitter',
     views: {
-      'tab-recipe': {
-        templateUrl: 'html/tab-recipe.html',
-        controller: 'RecipeCtrl'
+      'tab-twitter': {
+        templateUrl: 'html/tab-twitter.html',
+        controller: 'TwitterCtrl'
       }
     }
   })
