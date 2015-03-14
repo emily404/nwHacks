@@ -21,6 +21,28 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller('RecipeCtrl', function($scope) {
+	
+	
+	
+	
+	
+	
+	
+	
+})
+
+.controller('MarketCtrl', function($scope) {
+	
+	
+	
+	
+	
+	
+	
+	
+})
+
 .controller('MapController', function($scope, $ionicLoading) {
 		
 		var myLatlng = new google.maps.LatLng(49.2827, -123.1207);

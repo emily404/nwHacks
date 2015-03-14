@@ -1,33 +1,38 @@
 var fbRef = new Firebase('https://flickering-fire-8922.firebaseio.com/');
 var foodRef = fbRef.child('food');
-function setValue(){
-	foodRef.set({
-		1:{
-			name: 'Broccoli',
-			type:'vegetable',
-			price: '$1.23/lb'
-		},
-		2:{
-			name: 'Eggplant',
-			type:'vegetable',
-			price: '$1.29/lb'
-		},
-		3:{
-			name: 'Apple',
-			type:'fruit',
-			price: '$1.45/lb'
-		},	
-		4:{
-			name: 'Banana',
-			type:'fruit',
-			price: '$1.01/lb'
-		},
-		5:{
-			name: 'Orange',
-			type:'fruit',
-			price: '$1.00/lb'
-		}
-	});
+function setValue(section){
+	if (section == 1){
+		foodRef.set({
+			0:{
+				name: 'Broccoli',
+				type:'vegetable',
+				price: '$1.23/lb'
+			},
+			1:{
+				name: 'Eggplant',
+				type:'vegetable',
+				price: '$1.29/lb'
+			},
+			2:{
+				name: 'Apple',
+				type:'fruit',
+				price: '$1.45/lb'
+			},	
+			3:{
+				name: 'Banana',
+				type:'fruit',
+				price: '$1.01/lb'
+			},
+			4:{
+				name: 'Orange',
+				type:'fruit',
+				price: '$1.00/lb'
+			}
+		});
+	}
+	else if (section == 2){
+		
+	}
 }
 
 function retrieveSeasonalData(){
