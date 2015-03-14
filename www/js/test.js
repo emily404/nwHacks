@@ -1,5 +1,6 @@
 var fbRef = new Firebase('https://flickering-fire-8922.firebaseio.com/');
 var foodRef = fbRef.child('food');
+var resRef = fbRef.child('restaurant');
 function setValue(){
 //	usersRef.set({
 //		1:{
@@ -28,6 +29,20 @@ function setValue(){
 //			price: '1.01/lb'
 //		}
 //	});
+
+//	resRef.set({
+//		1:{
+//			name: '3G Vegetarian',
+//			lat: 49.282, 
+//			lon: -123.1207
+//		},
+//		2:{
+//			name: 'Nuba',
+//			lat: 49.283,
+//			lon: -123.1207
+//		}
+//	});
+
 }
 
 
