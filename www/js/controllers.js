@@ -100,7 +100,6 @@ angular.module('starter.controllers', [])
     			marker.setMap(map);
     		})		
     	});
-        
         $scope.map = map;
  
 });
