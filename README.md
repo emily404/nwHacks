@@ -1,1 +1,3 @@
 # nwHacks
+ emily
+ kelvin
