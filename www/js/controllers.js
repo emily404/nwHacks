@@ -20,17 +20,18 @@ angular.module('starter.controllers', [])
     enableFriends: true
   };
 })
- .controller('MapController', function($scope, $ionicLoading) {
-    google.maps.event.addDomListener(window, 'click', function() {
-        var myLatlng = new google.maps.LatLng(37.3000, -120.4833);
+
+.controller('MapController', function($scope, $ionicLoading) {
+		
+		var myLatlng = new google.maps.LatLng(49.2827, -123.1207);
  
         var mapOptions = {
             center: myLatlng,
-            zoom: 16,
+            zoom: 13,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
  
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
  
         navigator.geolocation.getCurrentPosition(function(pos) {
             map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
@@ -40,9 +41,15 @@ angular.module('starter.controllers', [])
                 title: "My Location"
             });
         });
- 
+        
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(49.3, -123.1207),
+            title:"Hello World!"
+        });
+
+        marker.setMap(map);
+        
         $scope.map = map;
-    });
+
  
-})
-;
+});
