@@ -1,5 +1,7 @@
 var fbRef = new Firebase('https://flickering-fire-8922.firebaseio.com/');
 var foodRef = fbRef.child('food');
+
+var recRef = fbRef.child('recipe');
 function setValue(section){
 	if (section == 1){
 		foodRef.set({
@@ -31,6 +33,9 @@ function setValue(section){
 		});
 	}
 	else if (section == 2){
+
+	}
+	else if (section == 3){
 		
 	}
 }
