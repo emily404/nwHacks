@@ -53,11 +53,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       url: '/chats',
       views: {
         'tab-chats': {
-<<<<<<< HEAD
-          templateUrl: 'html/tab-chats.html',
-=======
+
           templateUrl: 'templates/tab-restaurants.html',
->>>>>>> pebble
+
           controller: 'MapController'
         }
       }
@@ -90,7 +88,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
-  
+
   .state('tab.market', {
     url: '/market',
     views: {
@@ -100,15 +98,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
-  
+
   ;
-  
-  
+
+
 
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
 
-  
+
 });
 
