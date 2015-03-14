@@ -57,22 +57,39 @@ angular.module('starter.controllers', [])
  
         navigator.geolocation.getCurrentPosition(function(pos) {
             map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+            var image = 'img/pegman.png';
             var myLocation = new google.maps.Marker({
                 position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
                 map: map,
-                title: "My Location"
+                icon: image
             });
         });
         
         var fbRef = new Firebase('https://flickering-fire-8922.firebaseio.com/');
         var resRef = fbRef.child('restaurant');
-        
+        var lastwindow = null;
         resRef.on("value", function(snapshot) {
+        	
     		snapshot.forEach(function(childSnapshot){
+    			var val = childSnapshot.val();
+    			console.log(val);
     			var marker = new google.maps.Marker({
-    	            position: new google.maps.LatLng(childSnapshot.val().lat, childSnapshot.val().lon),
+    	            position: new google.maps.LatLng(val.lat, val.lon),
     	        });
-    			
+    			var contentString = 
+    			  '<p><b>'+ val.name +'</b></p>'+	
+    			  '<p><b>Hours</b>:'+ val.hour +'</p>'
+    		      ;
+    			var infowindow = new google.maps.InfoWindow({
+    			      content: contentString
+    			});
+    			google.maps.event.addListener(marker, 'click', function() {
+    				if(lastwindow != null){
+    					lastwindow.close();
+    				}
+    				infowindow.open(map,marker);
+    				lastwindow = infowindow;
+    			});
     			marker.setMap(map);
     		})		
     	});
