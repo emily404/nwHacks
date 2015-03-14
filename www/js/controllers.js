@@ -72,7 +72,6 @@ angular.module('starter.controllers', [])
         	
     		snapshot.forEach(function(childSnapshot){
     			var val = childSnapshot.val();
-    			console.log(val);
     			var marker = new google.maps.Marker({
     	            position: new google.maps.LatLng(val.lat, val.lon),
     	        });
