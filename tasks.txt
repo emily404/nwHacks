@@ -12,6 +12,7 @@ most recent farmers market information
 
 remind something else
 maybe checkin with facebook api
+inspirational meatfreemonday photos from twitter
 
 firebase schema
 food
