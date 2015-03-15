@@ -68,7 +68,7 @@ function retrieveSeasonalData(){
 	var fruits_set = {labels:["January", "April", "July","October"]};
 	var vegetables_set = {labels:["January", "April", "July","October"]};
 	
-	var color_setting = ["rgba(220,220,220,","rgba(151,187,205,","rgba(82,154,190,","rgba(13,121,175,"];
+	var color_setting = ["rgba(244,203,36,","rgba(120,131,242,","rgba(242,138,120,","rgba(13,121,175,"];
 	
 	foodRef.on("value", function(snapshot) {
 		i = 0 ;
@@ -79,7 +79,7 @@ function retrieveSeasonalData(){
 			if (childSnapshot.val().type == "fruit"){
 				fruits_datasets.push(
 					{
-						label:childSnapshot.val().name,
+						title:childSnapshot.val().name,
 						fillColor: color_setting[i] + "0.2)",
 						strokeColor:  color_setting[i] +"1)",
 						pointColor: color_setting[i] +"1)",
@@ -94,7 +94,7 @@ function retrieveSeasonalData(){
 			else{
 				vegetables_datasets.push(
 						{
-							label:childSnapshot.val().name,
+							title: childSnapshot.val().name,
 							fillColor: color_setting[j] + "0.2)",
 							strokeColor: color_setting[j] + "1)",
 							pointColor: color_setting[j] + "1)",
@@ -111,9 +111,9 @@ function retrieveSeasonalData(){
 		vegetables_set.datasets = vegetables_datasets;
 		
 		var ctx = $("#fruits").get(0).getContext("2d");
-		var myLineChart = new Chart(ctx).Line(fruits_set,{graphTitleFontSize : 14,graphTitle : "Price Trend of Fruits in Greater Vancouver in 2015",xAxisLabel : "Month",yAxisLabel : "CAD / lb", inGraphDataShow: true});
+		var myLineChart = new Chart(ctx).Line(fruits_set,{graphTitleFontSize : 14,graphTitle : "Price Trend of Fruits in Greater Vancouver in 2015",xAxisLabel : "Month",yAxisLabel : "CAD / lb", legend: true, inGraphDataShow: true});
 		ctx = $("#vegetables").get(0).getContext("2d");
-		myLineChart = new Chart(ctx).Line(vegetables_set,{graphTitleFontSize : 14,graphTitle : "Price Trend of Vegetables in Greater Vancouver in 2015",xAxisLabel : "Month",yAxisLabel : "CAD / lb",inGraphDataShow: true});
+		myLineChart = new Chart(ctx).Line(vegetables_set,{graphTitleFontSize : 14,graphTitle : "Price Trend of Vegetables in Greater Vancouver in 2015",xAxisLabel : "Month",yAxisLabel : "CAD / lb", legend:true, inGraphDataShow: true});
 		
 		
 	});
