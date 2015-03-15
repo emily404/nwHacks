@@ -2,6 +2,8 @@ var fbRef = new Firebase('https://flickering-fire-8922.firebaseio.com/');
 var foodRef = fbRef.child('food');
 var recRef = fbRef.child('recipe');
 var marketRef = fbRef.child('market');
+var tweetRef = fbRef.child('tweets');
+
 
 function setValue(section){
 	if (section == 1){
@@ -109,9 +111,9 @@ function retrieveSeasonalData(){
 		vegetables_set.datasets = vegetables_datasets;
 		
 		var ctx = $("#fruits").get(0).getContext("2d");
-		var myLineChart = new Chart(ctx).Line(fruits_set,{graphTitleFontSize : 14,graphTitle : "Price Trend of Fruits in Greater Vancouver in 2015",xAxisLabel : "Month",yAxisLabel : "CAD / lb", legend: true, inGraphDataShow: true});
+		var myLineChart = new Chart(ctx).Line(fruits_set,{graphTitleFontSize : 10,graphTitle : "Price Trend of Fruits in Greater Vancouver in 2015",xAxisLabel : "Month",yAxisLabel : "CAD / lb", legend: true, inGraphDataShow: true});
 		ctx = $("#vegetables").get(0).getContext("2d");
-		myLineChart = new Chart(ctx).Line(vegetables_set,{graphTitleFontSize : 14,graphTitle : "Price Trend of Vegetables in Greater Vancouver in 2015",xAxisLabel : "Month",yAxisLabel : "CAD / lb", legend:true, inGraphDataShow: true});
+		myLineChart = new Chart(ctx).Line(vegetables_set,{graphTitleFontSize : 10,graphTitle : "Price Trend of Vegetables in Greater Vancouver in 2015",xAxisLabel : "Month",yAxisLabel : "CAD / lb", legend:true, inGraphDataShow: true});
 		
 		
 	});
