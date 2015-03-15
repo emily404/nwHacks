@@ -2,6 +2,7 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {
 	retrieveSeasonalData();	
+	
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {

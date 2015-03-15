@@ -1,18 +1,10 @@
 <ion-view view-title="Seasonal Produce">
   <ion-content class="padding">
     <button onclick = "setValue(1)">Set Values</button>
-    <div class="list card">
-      <div class="item item-divider"><b>Fruits</b></div>
-      <div class="item item-body">
-        <table id = "fruits" class = "food"></table>   
-      </div>
-    </div>
-
-    <div class="list card">
-      <div class="item item-divider"><b>Vegetables</b></div>
-      <div class="item item-body">
-        <table id = "vegetables" class = "food"></table>
-      </div>
-    </div>
+    
+    <div><canvas id="fruits" width="400" height="400"></canvas></div>
+    <div><canvas id="vegetables" width="400" height="400"></canvas></div>
+    
+    
   </ion-content>
 </ion-view>
