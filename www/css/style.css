@@ -13,7 +13,13 @@
     border-style: hidden;
 }
 
-.food td{
+.food td {
     border: 1px solid grey;
     margin-left:20px;
+}
+
+.market-padding {
+	padding-top: 5px;
+	padding-left: 17px;
+	padding-bottom: 5px;
 }
