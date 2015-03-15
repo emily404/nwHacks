@@ -4,7 +4,6 @@ var recRef = fbRef.child('recipe');
 var marketRef = fbRef.child('market');
 var tweetRef = fbRef.child('tweets');
 
-
 function setValue(section){
 	if (section == 1){
 		foodRef.set({
@@ -117,4 +116,29 @@ function retrieveSeasonalData(){
 		
 		
 	});
+}
+
+function initData($scope){
+	var data = [];
+	   tweetRef.on("value", function(snapshot) {
+		   data = [];
+	    	snapshot.forEach(function(childSnapshot){
+				var val = childSnapshot.val();
+				data.push({profile: val.profile_img, tweet: val.tweet});
+	    	});
+	    	$scope.tweets = data;
+	    });  
+
+	
+    var neighbourhoods = [];
+	
+    marketRef.on("value", function(snapshot) {
+    	neighbourhoods = [];
+    	snapshot.forEach(function(childSnapshot){
+			var val = childSnapshot.val();
+			neighbourhoods.push({name: val.neighbourhood, location: val.location, hour: val.hour});			
+    	});
+    	$scope.neighbourhoods = neighbourhoods;
+    });
+	
 }

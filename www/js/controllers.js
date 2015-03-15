@@ -2,58 +2,19 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {
 	retrieveSeasonalData();	
-	
+	initData($scope);
 })
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  }
-})
-
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
-})
 
 .controller('TwitterCtrl', function($scope) {
-	
-  $scope.tweets = [];
-  var data = [];	
-   tweetRef.on("value", function(snapshot) {
-    	snapshot.forEach(function(childSnapshot){
-			var val = childSnapshot.val();
-			data.push({profile: val.profile_img, tweet: val.tweet});
-    	});
-    });  
-   $scope.tweets = data;
-  
+	initData($scope);
 })
 
 .controller('MarketCtrl', function($scope) {
-	
-	var fbRef = new Firebase('https://flickering-fire-8922.firebaseio.com/');
-    var marketRef = fbRef.child('market');    
-    var neighbourhoods = [];
-	
-    marketRef.on("value", function(snapshot) {
-    	snapshot.forEach(function(childSnapshot){
-			var val = childSnapshot.val();
-			neighbourhoods.push({name: val.neighbourhood, location: val.location, hour: val.hour});			
-    	});
-    });
-    
-	$scope.neighbourhoods = neighbourhoods;
+	initData($scope);
 })
 
 .controller('MapController', function($scope, $ionicLoading) {
-		
 		var myLatlng = new google.maps.LatLng(49.2827, -123.1207);
  
         var mapOptions = {
@@ -102,5 +63,5 @@ angular.module('starter.controllers', [])
     		})		
     	});
         $scope.map = map;
- 
+        initData($scope);
 });
