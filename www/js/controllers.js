@@ -23,22 +23,17 @@ angular.module('starter.controllers', [])
 })
 
 .controller('TwitterCtrl', function($scope) {
-  // Get all the tweets with #Meatfreemonday
-  $scope.tweets = [
-                      { title: 'Reggae', id: 1 },
-                      { title: 'Chill', id: 2 },
-                      { title: 'Dubstep', id: 3 },
-                      { title: 'Indie', id: 4 },
-                      { title: 'Rap', id: 5 },
-                      { title: 'Rap', id: 5 },
-                      { title: 'Rap', id: 5 },
-                      { title: 'Rap', id: 5 },
-                      { title: 'Rap', id: 5 },
-                      { title: 'Rap', id: 5 },
-                      { title: 'Rap', id: 5 },
-                      { title: 'Rap', id: 5 },
-                      { title: 'Cowbell', id: 6 }
-                    ];
+	
+  $scope.tweets = [];
+  var data = [];	
+   tweetRef.on("value", function(snapshot) {
+    	snapshot.forEach(function(childSnapshot){
+			var val = childSnapshot.val();
+			data.push({profile: val.profile_img, tweet: val.tweet});
+    	});
+    });  
+   $scope.tweets = data;
+  
 })
 
 .controller('MarketCtrl', function($scope) {

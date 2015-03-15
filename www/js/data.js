@@ -2,6 +2,8 @@ var fbRef = new Firebase('https://flickering-fire-8922.firebaseio.com/');
 var foodRef = fbRef.child('food');
 var recRef = fbRef.child('recipe');
 var marketRef = fbRef.child('market');
+var tweetRef = fbRef.child('tweets');
+
 
 function setValue(section){
 	if (section == 1){
