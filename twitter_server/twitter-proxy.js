@@ -3,7 +3,7 @@
 var express = require('express.io');
 var app = express().http().io();
 
-var hashList = ['#meatfreemonday'];
+var hashList = ['#testhack'];
 
 var Twit = require('twit')
 
@@ -46,6 +46,8 @@ var T_parse = function(data){
 var T_single_parse = function(data){
   return { tweet: data.text, profile_img: data.user.profile_image_url } ;
 }
+
+app.use(express.static(__dirname + '/public', { redirect: false }));
 
 app.get('/', function(req, res){
   res.sendfile(__dirname + '/views/index.html');

@@ -43,13 +43,18 @@ angular.module('starter.controllers', [])
 
 .controller('MarketCtrl', function($scope) {
 	
+	var fbRef = new Firebase('https://flickering-fire-8922.firebaseio.com/');
+    var marketRef = fbRef.child('market');    
+    var neighbourhoods = [];
 	
-	
-	
-	
-	
-	
-	
+    marketRef.on("value", function(snapshot) {
+    	snapshot.forEach(function(childSnapshot){
+			var val = childSnapshot.val();
+			neighbourhoods.push({name: val.neighbourhood, location: val.location, hour: val.hour});			
+    	});
+    });
+    
+	$scope.neighbourhoods = neighbourhoods;
 })
 
 .controller('MapController', function($scope, $ionicLoading) {
@@ -101,7 +106,6 @@ angular.module('starter.controllers', [])
     			marker.setMap(map);
     		})		
     	});
-        
         $scope.map = map;
  
 });

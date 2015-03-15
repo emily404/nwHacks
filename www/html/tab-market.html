@@ -1,19 +1,14 @@
-<ion-view view-title="Farmer Markets">
-  <ion-content class="padding">
-    <button onclick = "setValue(3)">Set Values</button>
-    <div class="list card">
-      <div class="item item-divider"><b>Market #1</b></div>
-      <div class="item item-body">
-      <div id = "123"></div>
-        pic<br>
+<ion-view view-title="Farmer Markets"> 
+  <ion-content class="padding"> 
+  <ion-list> 
+	<ion-item ng-repeat="neighbourhood in neighbourhoods">
+	  <div class="item item-divider">
+		<b>{{neighbourhood.name}}</b>
+	  </div>
+	  <div class="market-padding">Location: {{neighbourhood.location}}</div>
+	  <div class="market-padding">Hour: {{neighbourhood.hour}}</div>
       </div>
-    </div>
-
-    <div class="list card">
-      <div class="item item-divider"><b>Market #2</b></div>
-      <div class="item item-body">
-        pic<br>
-      </div>
-    </div>
-  </ion-content>
+    </ion-item> 
+    </ion-list> 
+  </ion-content> 
 </ion-view>
